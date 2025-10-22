@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="ru">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akyl_ordo_anglsh - Изучение английского языка</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #fbbf24 0%, #3b82f6 50%, #ffffff 100%);
+        }
+        
+        .card-shadow {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.6s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .loading-spinner {
+            border: 3px solid #f3f4f6;
+            border-top: 3px solid #3b82f6;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .animate-spin-slow {
+            animation: spin 3s linear infinite;
+        }
+        
+        .modal-backdrop {
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .modal-slide-in {
+            animation: slideInScale 0.4s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideInScale {
+            from { 
+                opacity: 0; 
+                transform: translateY(-50px) scale(0.9); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+        
+        .contact-button {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .contact-button:hover::before {
+            left: 100%;
+        }
+        
+        .whatsapp-button:hover {
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+        }
+        
+        .instagram-button:hover {
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+        }
+        
+        .phone-button:hover {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+ </head>
+ <body class="min-h-full"><!-- Header -->
+  <header class="gradient-bg py-4 px-6 shadow-lg">
+   <div class="max-w-6xl mx-auto flex justify-between items-center">
+    <h1 id="site-title" class="text-2xl font-bold text-white">Akyl_ordo_anglsh</h1>
+    <nav class="hidden md:flex space-x-6"><a href="#courses" class="text-white hover:text-yellow-200 transition-colors">Курсы</a> <a href="#about" class="text-white hover:text-yellow-200 transition-colors">О нас</a> <a href="#contact" class="text-white hover:text-yellow-200 transition-colors">Контакты</a>
+    </nav>
+   </div>
+  </header><!-- Hero Section -->
+  <section class="gradient-bg py-20 px-6">
+   <div class="max-w-4xl mx-auto text-center">
+    <h2 id="main-heading" class="text-5xl font-bold text-white mb-6 slide-in">Изучайте английский с профессионалами</h2>
+    <p id="hero-description" class="text-xl text-white mb-8 slide-in">Эффективные методики обучения, опытные преподаватели и индивидуальный подход к каждому студенту</p><button onclick="openContactModal()" class="bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-yellow-100 transition-all pulse-animation float-animation hover:shadow-2xl transform hover:scale-110"> 🎓 Записаться на пробный урок </button>
+   </div>
+  </section><!-- Features Section -->
+  <section class="py-16 px-6 bg-white">
+   <div class="max-w-6xl mx-auto">
+    <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">Почему выбирают нас?</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+     <div class="text-center p-6 card-shadow rounded-lg bg-gradient-to-br from-yellow-50 to-blue-50">
+      <div class="text-4xl mb-4">
+       🎯
+      </div>
+      <h4 class="text-xl font-semibold mb-3 text-gray-800">Индивидуальный подход</h4>
+      <p class="text-gray-600">Программа обучения адаптируется под ваш уровень и цели</p>
+     </div>
+     <div class="text-center p-6 card-shadow rounded-lg bg-gradient-to-br from-blue-50 to-white">
+      <div class="text-4xl mb-4">
+       👨‍🏫
+      </div>
+      <h4 class="text-xl font-semibold mb-3 text-gray-800">Опытные преподаватели</h4>
+      <p class="text-gray-600">Квалифицированные педагоги с международными сертификатами</p>
+     </div>
+     <div class="text-center p-6 card-shadow rounded-lg bg-gradient-to-br from-white to-yellow-50">
+      <div class="text-4xl mb-4">
+       ⚡
+      </div>
+      <h4 class="text-xl font-semibold mb-3 text-gray-800">Быстрый результат</h4>
+      <p class="text-gray-600">Заметный прогресс уже через месяц обучения</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Courses Section -->
+  <section id="courses" class="py-16 px-6 bg-gradient-to-r from-blue-50 to-yellow-50">
+   <div class="max-w-6xl mx-auto">
+    <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">Наши курсы</h3>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+     <div class="bg-white p-6 rounded-lg card-shadow">
+      <h4 class="text-xl font-semibold mb-3 text-blue-600">Начальный уровень</h4>
+      <p class="text-gray-600 mb-4">Изучение основ английского языка с нуля. Алфавит, базовая грамматика, простые фразы.</p>
+      <ul class="text-sm text-gray-500 space-y-1">
+       <li>• Продолжительность: 3 месяца</li>
+       <li>• Занятия: 3 раза в неделю</li>
+       <li>• Группы до 8 человек</li>
+      </ul>
+     </div>
+     <div class="bg-white p-6 rounded-lg card-shadow">
+      <h4 class="text-xl font-semibold mb-3 text-blue-600">Средний уровень</h4>
+      <p class="text-gray-600 mb-4">Развитие разговорных навыков, изучение времен, расширение словарного запаса.</p>
+      <ul class="text-sm text-gray-500 space-y-1">
+       <li>• Продолжительность: 4 месяца</li>
+       <li>• Занятия: 3 раза в неделю</li>
+       <li>• Разговорная практика</li>
+      </ul>
+     </div>
+     <div class="bg-white p-6 rounded-lg card-shadow">
+      <h4 class="text-xl font-semibold mb-3 text-blue-600">Продвинутый уровень</h4>
+      <p class="text-gray-600 mb-4">Подготовка к международным экзаменам, деловой английский, свободное общение.</p>
+      <ul class="text-sm text-gray-500 space-y-1">
+       <li>• Продолжительность: 6 месяцев</li>
+       <li>• Подготовка к IELTS/TOEFL</li>
+       <li>• Деловая лексика</li>
+      </ul>
+     </div>
+     <div class="bg-white p-6 rounded-lg card-shadow">
+      <h4 class="text-xl font-semibold mb-3 text-blue-600">Разговорный клуб</h4>
+      <p class="text-gray-600 mb-4">Практика разговорного английского в неформальной обстановке с носителями языка.</p>
+      <ul class="text-sm text-gray-500 space-y-1">
+       <li>• 2 раза в неделю</li>
+       <li>• Различные темы</li>
+       <li>• Носители языка</li>
+      </ul>
+     </div>
+     <div class="bg-white p-6 rounded-lg card-shadow">
+      <h4 class="text-xl font-semibold mb-3 text-blue-600">Детские курсы</h4>
+      <p class="text-gray-600 mb-4">Английский для детей от 5 до 12 лет в игровой форме с интерактивными методами.</p>
+      <ul class="text-sm text-gray-500 space-y-1">
+       <li>• Возраст: 5-12 лет</li>
+       <li>• Игровые методики</li>
+       <li>• Малые группы</li>
+      </ul>
+     </div>
+     <div class="bg-white p-6 rounded-lg card-shadow">
+      <h4 class="text-xl font-semibold mb-3 text-blue-600">Индивидуальные занятия</h4>
+      <p class="text-gray-600 mb-4">Персональные уроки с преподавателем по индивидуальной программе.</p>
+      <ul class="text-sm text-gray-500 space-y-1">
+       <li>• Гибкий график</li>
+       <li>• Личная программа</li>
+       <li>• Быстрый прогресс</li>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </section><!-- About Section -->
+  <section id="about" class="py-16 px-6 bg-white">
+   <div class="max-w-4xl mx-auto text-center">
+    <h3 class="text-3xl font-bold text-gray-800 mb-8">О нашей школе</h3>
+    <p class="text-lg text-gray-600 mb-6">Akyl Ordo English - это современная школа английского языка, которая помогает студентам достигать своих целей в изучении языка. Мы используем проверенные методики и современные технологии для эффективного обучения.</p>
+    <div class="grid md:grid-cols-2 gap-8 mt-12">
+     <div class="text-left">
+      <h4 class="text-xl font-semibold mb-4 text-blue-600">Наши преимущества:</h4>
+      <ul class="space-y-2 text-gray-600">
+       <li>✓ Более 5 лет опыта в обучении</li>
+       <li>✓ Сертифицированные преподаватели</li>
+       <li>✓ Современные учебные материалы</li>
+       <li>✓ Интерактивные методы обучения</li>
+       <li>✓ Гибкий график занятий</li>
+      </ul>
+     </div>
+     <div class="text-left">
+      <h4 class="text-xl font-semibold mb-4 text-blue-600">Результаты наших студентов:</h4>
+      <ul class="space-y-2 text-gray-600">
+       <li>📈 95% студентов повышают свой уровень</li>
+       <li>🎓 Успешная сдача международных экзаменов</li>
+       <li>💼 Карьерный рост благодаря знанию языка</li>
+       <li>🌍 Возможности для учебы за рубежом</li>
+       <li>🗣️ Уверенное общение на английском</li>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </section><!-- Contact Modal -->
+  <div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden modal-backdrop">
+   <div id="modal-content" class="bg-white rounded-2xl p-8 max-w-md mx-4 card-shadow modal-slide-in">
+    <div class="text-center mb-6">
+     <div class="animate-bounce text-4xl mb-4">
+      🎓
+     </div>
+     <h3 class="text-2xl font-bold text-gray-800 mb-2">Записаться на пробный урок</h3>
+     <p class="text-gray-600">Выберите удобный способ связи:</p>
+    </div>
+    <div class="space-y-4"><a href="https://wa.me/99622009201" target="_blank" rel="noopener noreferrer" class="contact-button whatsapp-button flex items-center justify-center w-full bg-green-500 text-white py-4 px-6 rounded-xl font-semibold hover:bg-green-600 transition-all transform hover:scale-105 hover:shadow-lg"> <span class="text-2xl mr-3 animate-pulse">📱</span>
+      <div class="text-left">
+       <div class="font-bold">
+        WhatsApp
+       </div>
+       <div class="text-sm opacity-90">
+        +996 220 092 01
+       </div>
+      </div></a> <a href="https://instagram.com/akyl_ordo_english" target="_blank" rel="noopener noreferrer" class="contact-button instagram-button flex items-center justify-center w-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white py-4 px-6 rounded-xl font-semibold hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 transition-all transform hover:scale-105 hover:shadow-lg"> <span class="text-2xl mr-3 animate-spin-slow">📷</span>
+      <div class="text-left">
+       <div class="font-bold">
+        Instagram
+       </div>
+       <div class="text-sm opacity-90">
+        @akyl_ordo_english
+       </div>
+      </div></a>
+     <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-xl border-2 border-blue-200">
+      <p class="text-center text-sm text-gray-600 mb-3 font-medium">📞 Или позвоните прямо сейчас:</p>
+      <div class="space-y-2"><a href="tel:+996777581807" class="phone-button block text-center bg-blue-500 text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-600 transition-all transform hover:scale-105"> <span class="animate-pulse">📞</span> +996 777 581 807 </a> <a href="tel:+99622009201" class="phone-button block text-center bg-blue-500 text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-600 transition-all transform hover:scale-105"> <span class="animate-pulse">📞</span> +996 220 092 01 </a>
+      </div>
+     </div>
+    </div><button onclick="closeContactModal()" class="mt-6 w-full bg-gray-200 text-gray-700 py-3 px-6 rounded-xl font-semibold hover:bg-gray-300 transition-all transform hover:scale-105"> ✖️ Закрыть </button>
+   </div>
+  </div><!-- Contact Info -->
+  <section class="py-12 px-6 bg-gray-800 text-white">
+   <div class="max-w-4xl mx-auto text-center">
+    <h3 class="text-2xl font-bold mb-8">Свяжитесь с нами</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+     <div>
+      <h4 class="text-lg font-semibold mb-4 text-yellow-400">📞 Телефоны</h4>
+      <p id="phone-primary" class="mb-2">+996777581807</p>
+      <p id="phone-secondary">+99622009201</p>
+     </div>
+     <div>
+      <h4 class="text-lg font-semibold mb-4 text-yellow-400">📱 Instagram</h4><a href="https://instagram.com/akyl_ordo_english" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors"> @<span id="instagram-handle">akyl_ordo_english</span> </a>
+     </div>
+     <div>
+      <h4 class="text-lg font-semibold mb-4 text-yellow-400">⏰ Режим работы</h4>
+      <p>Пн-Пт: 9:00 - 20:00</p>
+      <p>Сб-Вс: 10:00 - 18:00</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Footer -->
+  <footer class="bg-gray-900 text-white py-8 px-6">
+   <div class="max-w-4xl mx-auto text-center">
+    <p>© 2024 Akyl_ordo_anglsh. Все права защищены.</p>
+    <p class="mt-2 text-gray-400">Изучайте английский с удовольствием!</p>
+   </div>
+  </footer>
+  <script>
+        // Configuration object
+        const defaultConfig = {
+            site_title: "Akyl_ordo_anglsh",
+            main_heading: "Изучайте английский с профессионалами",
+            hero_description: "Эффективные методики обучения, опытные преподаватели и индивидуальный подход к каждому студенту",
+            phone_primary: "+996777581807",
+            phone_secondary: "+99622009201",
+            instagram_handle: "akyl_ordo_english"
+        };
+
+        // Data SDK handler
+        const dataHandler = {
+            onDataChanged(data) {
+                // Update UI if needed - for this form, we just show success message
+                console.log('Registration data updated:', data.length, 'entries');
+            }
+        };
+
+        // Initialize SDKs
+        async function initializeApp() {
+            // Initialize Data SDK
+            if (window.dataSdk) {
+                const initResult = await window.dataSdk.init(dataHandler);
+                if (!initResult.isOk) {
+                    console.error('Failed to initialize data SDK');
+                }
+            }
+
+            // Initialize Element SDK
+            if (window.elementSdk) {
+                await window.elementSdk.init({
+                    defaultConfig,
+                    render: async (config) => {
+                        // Update text content based on config
+                        document.getElementById('site-title').textContent = config.site_title || defaultConfig.site_title;
+                        document.getElementById('main-heading').textContent = config.main_heading || defaultConfig.main_heading;
+                        document.getElementById('hero-description').textContent = config.hero_description || defaultConfig.hero_description;
+                        document.getElementById('phone-primary').textContent = config.phone_primary || defaultConfig.phone_primary;
+                        document.getElementById('phone-secondary').textContent = config.phone_secondary || defaultConfig.phone_secondary;
+                        document.getElementById('instagram-handle').textContent = config.instagram_handle || defaultConfig.instagram_handle;
+                        
+                        // Update Instagram link
+                        const instagramLink = document.querySelector('a[href*="instagram.com"]');
+                        if (instagramLink) {
+                            instagramLink.href = `https://instagram.com/${config.instagram_handle || defaultConfig.instagram_handle}`;
+                        }
+                    },
+                    mapToCapabilities: (config) => ({
+                        recolorables: [],
+                        borderables: [],
+                        fontEditable: undefined,
+                        fontSizeable: undefined
+                    }),
+                    mapToEditPanelValues: (config) => new Map([
+                        ["site_title", config.site_title || defaultConfig.site_title],
+                        ["main_heading", config.main_heading || defaultConfig.main_heading],
+                        ["hero_description", config.hero_description || defaultConfig.hero_description],
+                        ["phone_primary", config.phone_primary || defaultConfig.phone_primary],
+                        ["phone_secondary", config.phone_secondary || defaultConfig.phone_secondary],
+                        ["instagram_handle", config.instagram_handle || defaultConfig.instagram_handle]
+                    ])
+                });
+            }
+        }
+
+
+
+        // Modal functions
+        function openContactModal() {
+            document.getElementById('contact-modal').classList.remove('hidden');
+        }
+
+        function closeContactModal() {
+            document.getElementById('contact-modal').classList.add('hidden');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('contact-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeContactModal();
+            }
+        });
+
+        // Smooth scroll to form
+        function scrollToForm() {
+            document.getElementById('contact').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        // Initialize app when page loads
+        document.addEventListener('DOMContentLoaded', initializeApp);
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9921bc9fe3944637',t:'MTc2MTA2MDAwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
